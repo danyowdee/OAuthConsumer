@@ -39,14 +39,14 @@
 
 + (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector
 {
-	return [[[OAAsynchronousDataFetcher alloc] initWithRequest:aRequest delegate:aDelegate didFinishSelector:finishSelector didFailSelector:failSelector] autorelease];
+	return [[OAAsynchronousDataFetcher alloc] initWithRequest:aRequest delegate:aDelegate didFinishSelector:finishSelector didFailSelector:failSelector];
 }
 
 - (id)initWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector
 {
 	if (self = [super init])
 	{
-		request = [aRequest retain];
+		request = aRequest;
 		delegate = aDelegate;
 		didFinishSelector = finishSelector;
 		didFailSelector = failSelector;	
@@ -58,15 +58,10 @@
 {    
     [request prepare];
 	
-	if (connection)
-		[connection release];
-	
 	connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
 	if (connection)
 	{
-		if (responseData)
-			[responseData release];
 		responseData = [[NSMutableData alloc] init];
 	}
 	else
@@ -77,7 +72,6 @@
         [delegate performSelector:didFailSelector
                        withObject:ticket
                        withObject:nil];
-		[ticket release];
 	}
 }
 
@@ -86,18 +80,8 @@
 	if (connection)
 	{
 		[connection cancel];
-		[connection release];
 		connection = nil;
 	}
-}
-
-- (void)dealloc
-{
-	[request release];
-	[connection release];
-	[response release];
-	[responseData release];
-	[super dealloc];
 }
 
 #pragma mark -
@@ -105,9 +89,7 @@
 
 - (void)connection:(NSURLConnection *)aConnection didReceiveResponse:(NSHTTPURLResponse *)aResponse
 {
-	if (response)
-		[response release];
-	response = [aResponse retain];
+	response = aResponse;
 	[responseData setLength:0];
 }
 
@@ -124,8 +106,6 @@
 	[delegate performSelector:didFailSelector
 				   withObject:ticket
 				   withObject:error];
-	
-	[ticket release];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection
@@ -139,13 +119,11 @@
     if (contentType && [contentType rangeOfString:@"charset=utf-8"].location != NSNotFound) {
         encoding = NSUTF8StringEncoding;
     }
-    NSString *responseString = [[[NSString alloc] initWithData:responseData encoding:encoding] autorelease];
+    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:encoding];
     
 	[delegate performSelector:didFinishSelector
 				   withObject:ticket
 				   withObject:responseString];
-	
-	[ticket release];
 }
 
 @end

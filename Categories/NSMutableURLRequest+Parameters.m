@@ -44,10 +44,6 @@
     
     if ((encodedParameters == nil) || ([encodedParameters isEqualToString:@""]))
 	{
-		if (shouldfree) 
-		{
-			[encodedParameters release];
-		}
 		return nil;
 	}
     
@@ -62,11 +58,7 @@
         [requestParameters addObject:parameter];
     }
     
-	// Cleanup
-	if (shouldfree)
-		[encodedParameters release];
-	
-    return [requestParameters autorelease];
+    return requestParameters;
 }
 
 - (void)setParameters:(NSArray *)parameters 

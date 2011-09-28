@@ -29,28 +29,25 @@
 
 @implementation OADataFetcher {
 @private
-    OAMutableURLRequest *request;
-    NSHTTPURLResponse *response;
-    NSError *error;
-    NSData *responseData;
     id delegate;
     SEL didFinishSelector;
     SEL didFailSelector;
 }
 
-- (void)fetchDataWithRequest:(OAMutableURLRequest *)aRequest 
+- (void)fetchDataWithRequest:(OAMutableURLRequest *)request 
 					delegate:(id)aDelegate 
 		   didFinishSelector:(SEL)finishSelector 
 			 didFailSelector:(SEL)failSelector 
 {
-    request = aRequest;
     delegate = aDelegate;
     didFinishSelector = finishSelector;
     didFailSelector = failSelector;
     
     [request prepare];
-    
-    responseData = [NSURLConnection sendSynchronousRequest:request
+
+    NSHTTPURLResponse *response;
+    NSError *error;
+	NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                          returningResponse:&response
                                                      error:&error];
 	
@@ -61,7 +58,6 @@
         [delegate performSelector:didFailSelector
                        withObject:ticket
                        withObject:error];
-		[ticket release];
     } else {
         OAServiceTicket *ticket = [[OAServiceTicket alloc] initWithRequest:request
                                                                   response:response
@@ -69,7 +65,6 @@
         [delegate performSelector:didFinishSelector
                        withObject:ticket
                        withObject:responseData];
-		[ticket release];
     }   
 }
 
