@@ -10,17 +10,66 @@
 
 @implementation OAToken (OAToken_KeychainExtensions)
 
-#if TARGET_OS_IPHONE
+static NSString * const kTokenKey = @"token";
+static NSString * const kTokenSecretKey = @"token_secret";
 
-- (OSStatus)storeInKeychain
+- (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName
 {
+	return [self storeInKeychainForService:serviceName account:accountName accessGroup:nil];
+}
+
+- (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup
+{
+	NSParameterAssert( serviceName!=nil );
+	NSParameterAssert( accountName!=nil );
+
+	// prepare all credential information for storing:
+	NSDictionary *oauthCredentials = [NSDictionary dictionaryWithObjectsAndKeys:
+									  self.key, kTokenKey,
+									  self.secret, kTokenSecretKey,
+									  nil];
+	NSData *credentialData = [NSKeyedArchiver archivedDataWithRootObject:oauthCredentials];
+
+	// Regeardless what we do, all keychain APIs use a dictionary for storage, which we prepare here:
+	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+								credentialData, (__bridge id)kSecAttrGeneric,
+								accountName, (__bridge id)kSecAttrAccount,
+								serviceName, (__bridge id) kSecAttrService,
+								// accessGroup may be nil, so this MUST be the last K/V-pair
+								accessGroup, (__bridge id) kSecAttrAccessGroup,
+								nil];
+
+	// There are two scenarios:
+	// 1. There is nothing stored in the keychain for this service-name.
+	// 2. We already have a token/secret pair that need to be updated.
+	//
+	// Due to the way OAuth works, scenario 1 is much more likely, so we handle it first.
+
+	CFTypeRef result;
+	OSStatus saveStatus = SecItemAdd((__bridge CFDictionaryRef)attributes, &result);
+	if ( noErr == saveStatus ) return noErr;
+
+	// Something went wrong!
+	// If the reason was that an items with this combination of identifiers already exists, we can easily recover.
+	// If not, we simply log the error and die here.
+	NSLog(@"D'uh!");
+	return saveStatus;
+	
 	return noErr;
 }
 
-- (id)initWithStoredCredentials
+- (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName
 {
+	return [self initWithStoredCredentialsForService:serviceName account:accountName accessGroup:nil];
+}
+
+- (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup;
+{
+	if ( !(self = [super init]) ) return nil;
+
 	return nil;
 }
+#if TARGET_OS_IPHONE
 
 #else
 - (id)initWithKeychainUsingAppName:(NSString *)name serviceProviderName:(NSString *)provider 

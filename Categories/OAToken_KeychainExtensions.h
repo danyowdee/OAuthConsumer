@@ -14,8 +14,11 @@
 
 #if TARGET_OS_IPHONE
 
-- (OSStatus)storeInKeychain;
-- (id)initWithStoredCredentials;
+- (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName;
+- (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup;
+
+- (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName;
+- (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup;
 
 #else
 - (id)initWithKeychainUsingAppName:(NSString *)name serviceProviderName:(NSString *)provider;
