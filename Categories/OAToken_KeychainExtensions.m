@@ -10,6 +10,8 @@
 
 @implementation OAToken (OAToken_KeychainExtensions)
 
+#if TARGET_OS_IPHONE
+
 static NSString * const kTokenKey = @"token";
 static NSString * const kTokenSecretKey = @"token_secret";
 
@@ -96,7 +98,6 @@ static NSString * const kTokenSecretKey = @"token_secret";
 
 	return self;
 }
-#if TARGET_OS_IPHONE
 
 #else
 - (id)initWithKeychainUsingAppName:(NSString *)name serviceProviderName:(NSString *)provider 
