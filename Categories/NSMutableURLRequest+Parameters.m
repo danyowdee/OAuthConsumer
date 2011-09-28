@@ -31,14 +31,12 @@
 - (NSArray *)parameters 
 {
     NSString *encodedParameters;
-	BOOL shouldfree = NO;
     
     if ([[self HTTPMethod] isEqualToString:@"GET"] || [[self HTTPMethod] isEqualToString:@"DELETE"]) 
         encodedParameters = [[self URL] query];
 	else 
 	{
         // POST, PUT
-		shouldfree = YES;
         encodedParameters = [[NSString alloc] initWithData:[self HTTPBody] encoding:NSASCIIStringEncoding];
     }
     
