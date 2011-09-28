@@ -36,7 +36,18 @@
 - (NSString *)_signatureBaseString;
 @end
 
-@implementation OAMutableURLRequest
+@implementation OAMutableURLRequest {
+@protected
+    OAConsumer *consumer;
+    OAToken *token;
+    NSString *realm;
+    NSString *signature;
+    id<OASignatureProviding> signatureProvider;
+    NSString *nonce;
+    NSString *timestamp;
+	NSMutableDictionary *extraOAuthParameters;
+}
+
 @synthesize signature, nonce, timestamp;
 
 #pragma mark init

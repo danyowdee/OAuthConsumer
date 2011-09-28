@@ -33,17 +33,8 @@
 #import "NSURL+Base.h"
 
 
-@interface OAMutableURLRequest : NSMutableURLRequest {
-@protected
-    OAConsumer *consumer;
-    OAToken *token;
-    NSString *realm;
-    NSString *signature;
-    id<OASignatureProviding> signatureProvider;
-    NSString *nonce;
-    NSString *timestamp;
-	NSMutableDictionary *extraOAuthParameters;
-}
+@interface OAMutableURLRequest : NSMutableURLRequest
+
 @property(retain, readonly) NSString *signature;
 @property(retain, readonly) NSString *nonce;
 

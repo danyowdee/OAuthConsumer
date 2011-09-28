@@ -27,7 +27,13 @@
 #import "OAServiceTicket.h"
 
 
-@implementation OAServiceTicket
+@implementation OAServiceTicket {
+@private
+    OAMutableURLRequest *request;
+    NSHTTPURLResponse *response;
+    BOOL didSucceed;
+}
+
 @synthesize request, response, didSucceed;
 
 - (id)initWithRequest:(OAMutableURLRequest *)aRequest response:(NSHTTPURLResponse *)aResponse didSucceed:(BOOL)success 

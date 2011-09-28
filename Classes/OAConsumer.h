@@ -27,11 +27,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface OAConsumer : NSObject {
-@protected
-	NSString *key;
-	NSString *secret;
-}
+@interface OAConsumer : NSObject
+
 @property(retain) NSString *key;
 @property(retain) NSString *secret;
 

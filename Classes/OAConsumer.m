@@ -26,7 +26,12 @@
 #import "OAConsumer.h"
 
 
-@implementation OAConsumer
+@implementation OAConsumer {
+@protected
+	NSString *key;
+	NSString *secret;
+}
+
 @synthesize key, secret;
 
 #pragma mark init

@@ -28,11 +28,8 @@
 #import "NSString+URLEncoding.h"
 
 
-@interface OARequestParameter : NSObject {
-@protected
-    NSString *name;
-    NSString *value;
-}
+@interface OARequestParameter : NSObject
+
 @property(retain) NSString *name;
 @property(retain) NSString *value;
 

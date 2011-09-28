@@ -25,11 +25,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OAToken : NSObject {
-@protected
-	NSString *key;
-	NSString *secret;
-}
+@interface OAToken : NSObject
+
 @property(retain) NSString *key;
 @property(retain) NSString *secret;
 

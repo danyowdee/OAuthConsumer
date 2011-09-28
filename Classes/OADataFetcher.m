@@ -27,7 +27,16 @@
 #import "OADataFetcher.h"
 
 
-@implementation OADataFetcher
+@implementation OADataFetcher {
+@private
+    OAMutableURLRequest *request;
+    NSHTTPURLResponse *response;
+    NSError *error;
+    NSData *responseData;
+    id delegate;
+    SEL didFinishSelector;
+    SEL didFailSelector;
+}
 
 - (void)fetchDataWithRequest:(OAMutableURLRequest *)aRequest 
 					delegate:(id)aDelegate 

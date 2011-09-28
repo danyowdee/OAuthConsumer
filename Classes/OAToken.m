@@ -27,7 +27,11 @@
 #import "OAToken.h"
 
 
-@implementation OAToken
+@implementation OAToken {
+@protected
+	NSString *key;
+	NSString *secret;
+}
 
 @synthesize key, secret;
 

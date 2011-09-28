@@ -27,7 +27,12 @@
 #import "OARequestParameter.h"
 
 
-@implementation OARequestParameter
+@implementation OARequestParameter {
+@protected
+    NSString *name;
+    NSString *value;
+}
+
 @synthesize name, value;
 
 + (id)requestParameterWithName:(NSString *)aName value:(NSString *)aValue 

@@ -26,15 +26,7 @@
 
 #import "OAMutableURLRequest.h"
 
-@interface OAAsynchronousDataFetcher : NSObject {
-    OAMutableURLRequest *request;
-    NSHTTPURLResponse *response;
-    NSURLConnection *connection;
-    NSMutableData *responseData;
-    id delegate;
-    SEL didFinishSelector;
-    SEL didFailSelector;	
-}
+@interface OAAsynchronousDataFetcher : NSObject
 
 + (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector;
 - (id)initWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector;
