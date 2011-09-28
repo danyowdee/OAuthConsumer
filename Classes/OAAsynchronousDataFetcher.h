@@ -26,10 +26,13 @@
 
 #import "OAMutableURLRequest.h"
 
+@class OAServiceTicket;
+typedef void(^OAFetchRequestHandler)(NSString *response, OAServiceTicket *ticket, NSError *error);
+
 @interface OAAsynchronousDataFetcher : NSObject
 
-+ (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector;
-- (id)initWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector;
++ (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest resultHandler:(OAFetchRequestHandler)handler;
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest resultHandler:(OAFetchRequestHandler)handler;
 
 - (void)start;
 - (void)cancel;

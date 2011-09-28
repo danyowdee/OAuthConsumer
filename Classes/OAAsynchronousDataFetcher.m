@@ -31,26 +31,21 @@
     NSHTTPURLResponse *response;
     NSURLConnection *connection;
     NSMutableData *responseData;
-    id delegate;
-    SEL didFinishSelector;
-    SEL didFailSelector;	
+	OAFetchRequestHandler handler;
 }
 
-
-+ (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector
++ (id)asynchronousFetcherWithRequest:(OAMutableURLRequest *)aRequest resultHandler:(OAFetchRequestHandler)handler
 {
-	return [[OAAsynchronousDataFetcher alloc] initWithRequest:aRequest delegate:aDelegate didFinishSelector:finishSelector didFailSelector:failSelector];
+	return [[self alloc] initWithRequest:aRequest resultHandler:handler];
 }
 
-- (id)initWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest resultHandler:(OAFetchRequestHandler)aHandler
 {
-	if (self = [super init])
-	{
-		request = aRequest;
-		delegate = aDelegate;
-		didFinishSelector = finishSelector;
-		didFailSelector = failSelector;	
-	}
+	if ( !(self = [super init]) ) return nil;
+	
+	request = aRequest;
+	handler = aHandler;
+
 	return self;
 }
 
@@ -69,9 +64,7 @@
         OAServiceTicket *ticket= [[OAServiceTicket alloc] initWithRequest:request
                                                                  response:nil
                                                                didSucceed:NO];
-        [delegate performSelector:didFailSelector
-                       withObject:ticket
-                       withObject:nil];
+		handler(nil, ticket, nil);
 	}
 }
 
@@ -103,9 +96,8 @@
 	OAServiceTicket *ticket= [[OAServiceTicket alloc] initWithRequest:request
 															 response:response
 														   didSucceed:NO];
-	[delegate performSelector:didFailSelector
-				   withObject:ticket
-				   withObject:error];
+
+	handler(nil, ticket, error);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection
@@ -120,10 +112,8 @@
         encoding = NSUTF8StringEncoding;
     }
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:encoding];
-    
-	[delegate performSelector:didFinishSelector
-				   withObject:ticket
-				   withObject:responseString];
+
+    handler(responseString, ticket, nil);
 }
 
 @end
