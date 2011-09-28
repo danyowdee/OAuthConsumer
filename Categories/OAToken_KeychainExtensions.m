@@ -8,12 +8,18 @@
 
 #import "OAToken_KeychainExtensions.h"
 
-@implementation OAToken (OAToken_KeychainExtensions)
-
 #if TARGET_OS_IPHONE
 
 static NSString * const kTokenKey = @"token";
 static NSString * const kTokenSecretKey = @"token_secret";
+
+static NSDictionary * sKeychainQueryForService_account_accessGroup(NSString *serviceName, NSString *accountName, NSString *accessGroup);
+
+#endif
+
+@implementation OAToken (OAToken_KeychainExtensions)
+
+#if TARGET_OS_IPHONE
 
 - (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName
 {
@@ -26,7 +32,7 @@ static NSString * const kTokenSecretKey = @"token_secret";
 	NSParameterAssert( accountName!=nil );
 
 	// prepare all credential information for storing:
-	NSDictionary *oauthCredentials = [NSDictionary dictionaryWithObjectsAndKeys:
+	NSMutableDictionary *oauthCredentials = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 									  self.key, kTokenKey,
 									  self.secret, kTokenSecretKey,
 									  nil];
@@ -49,15 +55,22 @@ static NSString * const kTokenSecretKey = @"token_secret";
 
 	CFTypeRef result;
 	OSStatus saveStatus = SecItemAdd((__bridge CFDictionaryRef)attributes, &result);
-	if ( noErr == saveStatus ) return noErr;
+	if ( errSecSuccess == saveStatus ) return errSecSuccess;
 
 	// Something went wrong!
 	// If the reason was that an items with this combination of identifiers already exists, we can easily recover.
 	// If not, we simply log the error and die here.
-	NSLog(@"D'uh!");
+
+	if ( errSecDuplicateItem != saveStatus ) {
+		NSLog(@"This would be a nice error message, if iOS implemented SecCopyErrorMessage string...\nbut it doesn't so I'll stab you in the face with the error code %ld", saveStatus);
+		return saveStatus;
+	}
+
+	// woohoo, we have the item present in the keychain, let's try updateing it
+	NSDictionary *query = sKeychainQueryForService_account_accessGroup(serviceName, accountName, accessGroup);
+	saveStatus = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
+
 	return saveStatus;
-	
-	return noErr;
 }
 
 - (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName
@@ -71,13 +84,8 @@ static NSString * const kTokenSecretKey = @"token_secret";
 	NSParameterAssert( accountName!=nil );
 	if ( !(self = [super init]) ) return nil;
 
-	NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
-						   (__bridge id)kSecClassGenericPassword, (__bridge id)kSecClass,
-						   serviceName, (__bridge id)kSecAttrService,
-						   accountName, (__bridge id)kSecAttrAccount,
-						   // this MUST be the last K/V-pair because access-group MAY be nil
-						   accessGroup, (__bridge id)kSecAttrAccessGroup,
-						   nil];
+
+	NSDictionary *query = sKeychainQueryForService_account_accessGroup(serviceName, accountName, accessGroup);
 	CFDataRef result;
 	OSStatus readStatus = SecItemCopyMatching( (__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
 
@@ -182,3 +190,24 @@ static NSString * const kTokenSecretKey = @"token_secret";
 }
 #endif
 @end
+
+#if TARGET_OS_IPHONE
+
+static NSDictionary *sKeychainQueryForService_account_accessGroup(NSString *serviceName, NSString *accountName, NSString *accessGroup)
+{
+	NSCParameterAssert( serviceName!=nil );
+	NSCParameterAssert( accountName!=nil );
+
+	NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
+						   (__bridge id)kSecClassGenericPassword, (__bridge id)kSecClass,
+						   serviceName, (__bridge id)kSecAttrService,
+						   accountName, (__bridge id)kSecAttrAccount,
+						   // this MUST be the last K/V-pair because access-group MAY be nil
+						   accessGroup, (__bridge id)kSecAttrAccessGroup,
+						   nil];
+
+	return query;
+}
+
+#endif
+
