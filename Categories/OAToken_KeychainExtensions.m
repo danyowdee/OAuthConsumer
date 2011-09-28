@@ -65,9 +65,36 @@ static NSString * const kTokenSecretKey = @"token_secret";
 
 - (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup;
 {
+	NSParameterAssert( serviceName!=nil );
+	NSParameterAssert( accountName!=nil );
 	if ( !(self = [super init]) ) return nil;
 
-	return nil;
+	NSDictionary *query = [NSDictionary dictionaryWithObjectsAndKeys:
+						   (__bridge id)kSecClassGenericPassword, (__bridge id)kSecClass,
+						   serviceName, (__bridge id)kSecAttrService,
+						   accountName, (__bridge id)kSecAttrAccount,
+						   // this MUST be the last K/V-pair because access-group MAY be nil
+						   accessGroup, (__bridge id)kSecAttrAccessGroup,
+						   nil];
+	CFDataRef result;
+	OSStatus readStatus = SecItemCopyMatching( (__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+
+	// TODO: Logging
+	if ( noErr != readStatus || result == NULL ) return nil;
+
+	NSDictionary *credentials = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge_transfer NSData*)result];
+	NSString *token = [credentials objectForKey:kTokenKey];
+	NSString *tokenSecret = [credentials objectForKey:kTokenSecretKey];
+
+	if ( !token || !tokenSecret ) {
+		NSLog(@"Failed to retrieve a valid credential pair for service '%@'/account '%@'!\nAccess group: %@", serviceName, accountName, accessGroup);
+		return nil;
+	}
+
+	self.key = token;
+	self.secret = tokenSecret;
+
+	return self;
 }
 #if TARGET_OS_IPHONE
 
