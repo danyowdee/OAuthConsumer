@@ -38,7 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		551BA1091433167C000FD515 /* liblibOAuthConsumer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibOAuthConsumer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		551BA1091433167C000FD515 /* libOAuthConsumer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOAuthConsumer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		551BA10C1433167C000FD515 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		551BA1101433167C000FD515 /* libOAuthConsumer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libOAuthConsumer-Prefix.pch"; sourceTree = "<group>"; };
 		551BA119143316F1000FD515 /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		551BA10A1433167C000FD515 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				551BA1091433167C000FD515 /* liblibOAuthConsumer.a */,
+				551BA1091433167C000FD515 /* libOAuthConsumer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			);
 			name = libOAuthConsumer;
 			productName = libOAuthConsumer;
-			productReference = 551BA1091433167C000FD515 /* liblibOAuthConsumer.a */;
+			productReference = 551BA1091433167C000FD515 /* libOAuthConsumer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -265,6 +265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SYMROOT = "\"$(SRCROOT)/build\"";
 			};
 			name = Debug;
 		};
@@ -272,6 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SYMROOT = "\"$(SRCROOT)/build\"";
 			};
 			name = Release;
 		};
@@ -283,6 +285,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/libOAuthConsumer.dst;
+				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -302,6 +305,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -313,6 +317,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/libOAuthConsumer.dst;
+				EXECUTABLE_PREFIX = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libOAuthConsumer/libOAuthConsumer-Prefix.pch";
@@ -326,6 +331,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
