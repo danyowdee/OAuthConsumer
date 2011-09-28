@@ -22,8 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		2DD545D80F8D1A02007228C8 /* OAAsynchronousDataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DFA860F0EFCF7B200F849D3 /* OAAsynchronousDataFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DD545D90F8D1A1D007228C8 /* OAAsynchronousDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA86100EFCF7B200F849D3 /* OAAsynchronousDataFetcher.m */; };
 		4571A88A0DAC519C00E2A30E /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 4571A8840DAC519C00E2A30E /* Base64Transcoder.c */; };
 		4571A88B0DAC519C00E2A30E /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4571A8850DAC519C00E2A30E /* Base64Transcoder.h */; };
 		4571A8920DAC51A900E2A30E /* OAToken_KeychainExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4571A8900DAC51A900E2A30E /* OAToken_KeychainExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,9 +74,6 @@
 		FCB87CA90CDFF1A000C75049 /* OAServiceTicket.h in Headers */ = {isa = PBXBuildFile; fileRef = FCB87CA70CDFF1A000C75049 /* OAServiceTicket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCB87CAA0CDFF1A000C75049 /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB87CA80CDFF1A000C75049 /* OAServiceTicket.m */; };
 		FCB87CAB0CDFF1A000C75049 /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB87CA80CDFF1A000C75049 /* OAServiceTicket.m */; };
-		FCB87CB20CDFF40A00C75049 /* OADataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = FCB87CB00CDFF40A00C75049 /* OADataFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FCB87CB30CDFF40A00C75049 /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB87CB10CDFF40A00C75049 /* OADataFetcher.m */; };
-		FCB87CB40CDFF40A00C75049 /* OADataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB87CB10CDFF40A00C75049 /* OADataFetcher.m */; };
 		FCDD1C1E0CDD12C800DB97C5 /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OAuthConsumer.framework */; };
 		FCDD1C270CDD132600DB97C5 /* OAConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAAF2130CC9846D00C52F82 /* OAConsumer.m */; };
 		FCF317EF0CE181A30023F60C /* OADataFetcherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF317EE0CE181A30023F60C /* OADataFetcherTest.m */; };
@@ -113,8 +108,6 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2DFA860F0EFCF7B200F849D3 /* OAAsynchronousDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAAsynchronousDataFetcher.h; sourceTree = "<group>"; };
-		2DFA86100EFCF7B200F849D3 /* OAAsynchronousDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAAsynchronousDataFetcher.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* OAuthConsumer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer_Prefix.pch; sourceTree = "<group>"; };
 		4571A8840DAC519C00E2A30E /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		4571A8850DAC519C00E2A30E /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
@@ -168,8 +161,6 @@
 		FCAAF3D20CCC0C4400C52F82 /* NSMutableURLRequest+ParametersTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+ParametersTest.m"; sourceTree = "<group>"; };
 		FCB87CA70CDFF1A000C75049 /* OAServiceTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAServiceTicket.h; sourceTree = "<group>"; };
 		FCB87CA80CDFF1A000C75049 /* OAServiceTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAServiceTicket.m; sourceTree = "<group>"; };
-		FCB87CB00CDFF40A00C75049 /* OADataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OADataFetcher.h; sourceTree = "<group>"; };
-		FCB87CB10CDFF40A00C75049 /* OADataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OADataFetcher.m; sourceTree = "<group>"; };
 		FCF317ED0CE181A30023F60C /* OADataFetcherTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OADataFetcherTest.h; sourceTree = "<group>"; };
 		FCF317EE0CE181A30023F60C /* OADataFetcherTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OADataFetcherTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,10 +249,6 @@
 				FCAAF3BC0CC9F06C00C52F82 /* OARequestParameter.m */,
 				FCB87CA70CDFF1A000C75049 /* OAServiceTicket.h */,
 				FCB87CA80CDFF1A000C75049 /* OAServiceTicket.m */,
-				FCB87CB00CDFF40A00C75049 /* OADataFetcher.h */,
-				FCB87CB10CDFF40A00C75049 /* OADataFetcher.m */,
-				2DFA860F0EFCF7B200F849D3 /* OAAsynchronousDataFetcher.h */,
-				2DFA86100EFCF7B200F849D3 /* OAAsynchronousDataFetcher.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -373,9 +360,7 @@
 				FC98DE040CD1659000453F6C /* OAPlaintextSignatureProvider.h in Headers */,
 				FC6C10C40CD9998400A85842 /* OARequestParameter.h in Headers */,
 				FCB87CA90CDFF1A000C75049 /* OAServiceTicket.h in Headers */,
-				FCB87CB20CDFF40A00C75049 /* OADataFetcher.h in Headers */,
 				FCF317F00CE181A30023F60C /* OADataFetcherTest.h in Headers */,
-				2DD545D80F8D1A02007228C8 /* OAAsynchronousDataFetcher.h in Headers */,
 				4571A88B0DAC519C00E2A30E /* Base64Transcoder.h in Headers */,
 				4571A8920DAC51A900E2A30E /* OAToken_KeychainExtensions.h in Headers */,
 			);
@@ -496,8 +481,6 @@
 				FC98DE050CD1659000453F6C /* OAPlaintextSignatureProvider.m in Sources */,
 				FC98DF590CD19A7C00453F6C /* NSURL+Base.m in Sources */,
 				FCB87CAA0CDFF1A000C75049 /* OAServiceTicket.m in Sources */,
-				FCB87CB30CDFF40A00C75049 /* OADataFetcher.m in Sources */,
-				2DD545D90F8D1A1D007228C8 /* OAAsynchronousDataFetcher.m in Sources */,
 				4571A88A0DAC519C00E2A30E /* Base64Transcoder.c in Sources */,
 				4571A8930DAC51A900E2A30E /* OAToken_KeychainExtensions.m in Sources */,
 			);
@@ -526,7 +509,6 @@
 				FC98DF570CD19A7C00453F6C /* NSURL+Base.m in Sources */,
 				FC98DF5C0CD19B4400453F6C /* NSURL+BaseTest.m in Sources */,
 				FCB87CAB0CDFF1A000C75049 /* OAServiceTicket.m in Sources */,
-				FCB87CB40CDFF40A00C75049 /* OADataFetcher.m in Sources */,
 				FCF317EF0CE181A30023F60C /* OADataFetcherTest.m in Sources */,
 				4571A8A30DAC524F00E2A30E /* OAToken_KeychainExtensions.m in Sources */,
 				4571A8B70DAC52D800E2A30E /* Base64Transcoder.c in Sources */,

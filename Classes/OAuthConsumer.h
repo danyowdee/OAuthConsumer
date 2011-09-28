@@ -35,5 +35,3 @@
 #import <OAuthConsumer/OAPlaintextSignatureProvider.h>
 #import <OAuthConsumer/OARequestParameter.h>
 #import <OAuthConsumer/OAServiceTicket.h>
-#import <OAuthConsumer/OADataFetcher.h>
-#import <OAuthConsumer/OAAsynchronousDataFetcher.h>
