@@ -14,8 +14,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "551BA1081433167C000FD515"
-               BuildableName = "liblibOAuthConsumer.a"
-               BlueprintName = "libOAuthConsumer"
+               BuildableName = "libOAuthConsumer.a"
+               BlueprintName = "OAuthConsumer"
                ReferencedContainer = "container:OAuthConsumer_iPhone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
