@@ -46,7 +46,7 @@ Apart from that, the usual disclaimers apply:
 >                 two (2) or more persons affiliated with the entity 
 >                 must be recorded performing the full Chicken Dance, 
 >                 in an original video at the entity's own expense,
->                 and a video encoded in OGG Theora format, at least 
+>                 and a video encoded in h.264 format, at least 
 >                 three (3) minutes in length, must be submitted to 
 >                 Daniel Demiss, provided Daniel's contact information. 
 >                 The dance must be based upon the instructions on 
@@ -70,6 +70,6 @@ Apart from that, the usual disclaimers apply:
 > CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
 > LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
 > ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-> POSSIBILITY OF SUCH DAMAGE. <ORGANIZATION> ACCEPTS NO LIABILITY FOR
+> POSSIBILITY OF SUCH DAMAGE. CELLULAR GmbH ACCEPTS NO LIABILITY FOR
 > ANY INJURIES OR EXPENSES SUSTAINED IN THE ACT OF FULFILLING ANY OF 
 > THE ABOVE TERMS AND CONDITIONS, ACCIDENTAL OR OTHERWISE.
