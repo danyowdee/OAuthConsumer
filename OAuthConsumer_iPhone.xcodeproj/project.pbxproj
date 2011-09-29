@@ -40,6 +40,7 @@
 		5552F13D1434563C00D4E3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5552F13C1434563C00D4E3CD /* UIKit.framework */; };
 		5552F13E1434687600D4E3CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551BA15814331D72000FD515 /* Security.framework */; };
 		5552F13F143468A500D4E3CD /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551BA1091433167C000FD515 /* libOAuthConsumer.a */; };
+		5584FB6A14348FC200CCEDEE /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5584FB6914348FC200CCEDEE /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		5552F133143453A700D4E3CD /* OAuthConsumerTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OAuthConsumerTests-Prefix.pch"; sourceTree = "<group>"; };
 		5552F13A1434560B00D4E3CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/Developer/Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5552F13C1434563C00D4E3CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5584FB6914348FC200CCEDEE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				5552F12C143453A700D4E3CD /* OAuthConsumerTests-Info.plist */,
 				5552F12D143453A700D4E3CD /* InfoPlist.strings */,
 				5552F133143453A700D4E3CD /* OAuthConsumerTests-Prefix.pch */,
+				5584FB6914348FC200CCEDEE /* Entitlements.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5552F12F143453A700D4E3CD /* InfoPlist.strings in Resources */,
+				5584FB6A14348FC200CCEDEE /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +482,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
