@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <Security/Security.h>
 
 @interface OAToken : NSObject
 
@@ -32,5 +33,24 @@
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret;
 - (id)initWithHTTPResponseBody:(NSString *)body;
+
+
+#if TARGET_OS_IPHONE
+
+- (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName;
+- (OSStatus)storeInKeychainForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup;
+
+- (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName;
+- (id)initWithStoredCredentialsForService:(NSString *)serviceName account:(NSString *)accountName accessGroup:(NSString *)accessGroup;
+
+#else
+
+- (id)initWithKeychainUsingAppName:(NSString *)name serviceProviderName:(NSString *)provider;
+- (OSStatus)storeInDefaultKeychainWithAppName:(NSString *)name serviceProviderName:(NSString *)provider;
+
+- (OSStatus)storeInKeychain:(SecKeychainRef)keychain appName:(NSString *)name serviceProviderName:(NSString *)provider;
+
+#endif
+
 
 @end
