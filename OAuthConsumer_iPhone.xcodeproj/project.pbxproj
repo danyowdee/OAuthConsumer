@@ -91,6 +91,7 @@
 		5552F13A1434560B00D4E3CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/Developer/Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5552F13C1434563C00D4E3CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		5584FB6914348FC200CCEDEE /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		5584FB6B143497FA00CCEDEE /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 			children = (
 				551BA15614331837000FD515 /* OASignatureProviding.h */,
 				551BA1101433167C000FD515 /* libOAuthConsumer-Prefix.pch */,
+				5584FB6B143497FA00CCEDEE /* Readme.md */,
 			);
 			name = "Supporting Files";
 			path = libOAuthConsumer;
