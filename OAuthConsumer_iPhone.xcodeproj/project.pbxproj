@@ -33,7 +33,24 @@
 		551BA154143316F1000FD515 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 551BA137143316F1000FD515 /* Base64Transcoder.h */; };
 		551BA15714331837000FD515 /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = 551BA15614331837000FD515 /* OASignatureProviding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		551BA15A14331D82000FD515 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551BA15814331D72000FD515 /* Security.framework */; };
+		5552F129143453A700D4E3CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551BA10C1433167C000FD515 /* Foundation.framework */; };
+		5552F12F143453A700D4E3CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5552F12D143453A700D4E3CD /* InfoPlist.strings */; };
+		5552F132143453A700D4E3CD /* OAuthConsumerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5552F131143453A700D4E3CD /* OAuthConsumerTests.m */; };
+		5552F13B1434560B00D4E3CD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5552F13A1434560B00D4E3CD /* SenTestingKit.framework */; };
+		5552F13D1434563C00D4E3CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5552F13C1434563C00D4E3CD /* UIKit.framework */; };
+		5552F13E1434687600D4E3CD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551BA15814331D72000FD515 /* Security.framework */; };
+		5552F13F143468A500D4E3CD /* libOAuthConsumer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 551BA1091433167C000FD515 /* libOAuthConsumer.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5552F138143453B000D4E3CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 551BA0FB143315BF000FD515 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 551BA1081433167C000FD515;
+			remoteInfo = OAuthConsumer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		551BA1091433167C000FD515 /* libOAuthConsumer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOAuthConsumer.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +81,14 @@
 		551BA137143316F1000FD515 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		551BA15614331837000FD515 /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = SOURCE_ROOT; };
 		551BA15814331D72000FD515 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		5552F124143453A600D4E3CD /* OAuthConsumerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthConsumerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5552F12C143453A700D4E3CD /* OAuthConsumerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OAuthConsumerTests-Info.plist"; sourceTree = "<group>"; };
+		5552F12E143453A700D4E3CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5552F130143453A700D4E3CD /* OAuthConsumerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConsumerTests.h; sourceTree = "<group>"; };
+		5552F131143453A700D4E3CD /* OAuthConsumerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthConsumerTests.m; sourceTree = "<group>"; };
+		5552F133143453A700D4E3CD /* OAuthConsumerTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OAuthConsumerTests-Prefix.pch"; sourceTree = "<group>"; };
+		5552F13A1434560B00D4E3CD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/Developer/Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5552F13C1434563C00D4E3CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +98,18 @@
 			files = (
 				551BA10D1433167C000FD515 /* Foundation.framework in Frameworks */,
 				551BA15A14331D82000FD515 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5552F120143453A600D4E3CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5552F13F143468A500D4E3CD /* libOAuthConsumer.a in Frameworks */,
+				5552F129143453A700D4E3CD /* Foundation.framework in Frameworks */,
+				5552F13E1434687600D4E3CD /* Security.framework in Frameworks */,
+				5552F13B1434560B00D4E3CD /* SenTestingKit.framework in Frameworks */,
+				5552F13D1434563C00D4E3CD /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +123,7 @@
 				551BA121143316F1000FD515 /* Classes */,
 				551BA135143316F1000FD515 /* Crypto */,
 				551BA10F1433167C000FD515 /* Supporting Files */,
+				5552F12A143453A700D4E3CD /* OAuthConsumerTests */,
 				551BA10B1433167C000FD515 /* Frameworks */,
 				551BA10A1433167C000FD515 /* Products */,
 			);
@@ -95,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				551BA1091433167C000FD515 /* libOAuthConsumer.a */,
+				5552F124143453A600D4E3CD /* OAuthConsumerTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +141,8 @@
 		551BA10B1433167C000FD515 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5552F13C1434563C00D4E3CD /* UIKit.framework */,
+				5552F13A1434560B00D4E3CD /* SenTestingKit.framework */,
 				551BA15814331D72000FD515 /* Security.framework */,
 				551BA10C1433167C000FD515 /* Foundation.framework */,
 			);
@@ -162,6 +203,26 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		5552F12A143453A700D4E3CD /* OAuthConsumerTests */ = {
+			isa = PBXGroup;
+			children = (
+				5552F130143453A700D4E3CD /* OAuthConsumerTests.h */,
+				5552F131143453A700D4E3CD /* OAuthConsumerTests.m */,
+				5552F12B143453A700D4E3CD /* Supporting Files */,
+			);
+			path = OAuthConsumerTests;
+			sourceTree = "<group>";
+		};
+		5552F12B143453A700D4E3CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5552F12C143453A700D4E3CD /* OAuthConsumerTests-Info.plist */,
+				5552F12D143453A700D4E3CD /* InfoPlist.strings */,
+				5552F133143453A700D4E3CD /* OAuthConsumerTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -205,6 +266,25 @@
 			productReference = 551BA1091433167C000FD515 /* libOAuthConsumer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		5552F123143453A600D4E3CD /* OAuthConsumerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5552F136143453A700D4E3CD /* Build configuration list for PBXNativeTarget "OAuthConsumerTests" */;
+			buildPhases = (
+				5552F11F143453A600D4E3CD /* Sources */,
+				5552F120143453A600D4E3CD /* Frameworks */,
+				5552F121143453A600D4E3CD /* Resources */,
+				5552F122143453A600D4E3CD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5552F139143453B000D4E3CD /* PBXTargetDependency */,
+			);
+			name = OAuthConsumerTests;
+			productName = OAuthConsumerTests;
+			productReference = 5552F124143453A600D4E3CD /* OAuthConsumerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,9 +307,37 @@
 			projectRoot = "";
 			targets = (
 				551BA1081433167C000FD515 /* OAuthConsumer */,
+				5552F123143453A600D4E3CD /* OAuthConsumerTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5552F121143453A600D4E3CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5552F12F143453A700D4E3CD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5552F122143453A600D4E3CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		551BA1051433167C000FD515 /* Sources */ = {
@@ -250,7 +358,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5552F11F143453A600D4E3CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5552F132143453A700D4E3CD /* OAuthConsumerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5552F139143453B000D4E3CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 551BA1081433167C000FD515 /* OAuthConsumer */;
+			targetProxy = 5552F138143453B000D4E3CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5552F12D143453A700D4E3CD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5552F12E143453A700D4E3CD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		551BA100143315C0000FD515 /* Debug */ = {
@@ -337,6 +472,71 @@
 			};
 			name = Release;
 		};
+		5552F134143453A700D4E3CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OAuthConsumerTests/OAuthConsumerTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "OAuthConsumerTests/OAuthConsumerTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5552F135143453A700D4E3CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OAuthConsumerTests/OAuthConsumerTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "OAuthConsumerTests/OAuthConsumerTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -354,6 +554,15 @@
 			buildConfigurations = (
 				551BA1141433167C000FD515 /* Debug */,
 				551BA1151433167C000FD515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5552F136143453A700D4E3CD /* Build configuration list for PBXNativeTarget "OAuthConsumerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5552F134143453A700D4E3CD /* Debug */,
+				5552F135143453A700D4E3CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
